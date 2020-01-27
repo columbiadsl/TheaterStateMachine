@@ -7,6 +7,10 @@
     <UserSecretsId>72497605-e162-4bfd-8513-6ed0be43463d</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\david\Work\Raven\TheaterStateMachine\CloudFsmApi\wwwroot\CloudFsmApi.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="3.0.1" />
