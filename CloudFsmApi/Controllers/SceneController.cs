@@ -32,6 +32,11 @@ namespace CloudFsmApi.Controllers
             _downlinkManager = downlinkManager;
         }
 
+
+        /// <summary>
+        /// Get the character data
+        /// </summary>
+        /// <returns>json with character data</returns>
         [HttpGet]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -45,6 +50,10 @@ namespace CloudFsmApi.Controllers
             return Json(json);
         }
 
+        /// <summary>
+        /// Get the scene scene and step that are currently executing.
+        /// </summary>
+        /// <returns>json with CurrentScene and CurrentStep; if show isn't running, CurrentScene = "Application is not running"</returns>
         [HttpGet]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -66,6 +75,10 @@ namespace CloudFsmApi.Controllers
             return Json(resp);
         }
 
+        /// <summary>
+        /// Get the json defining the show scenes and steps (the main state machine definition file).
+        /// </summary>
+        /// <returns>json file defining the scenes and steps for the state machine.</returns>
         [HttpGet]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -78,6 +91,12 @@ namespace CloudFsmApi.Controllers
             return Json(scene);
         }
 
+        /// <summary>
+        /// Jump immediately to the specified scene and step.
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="step"></param>
+        /// <returns>json with scene and step executing after the jump</returns>
         [HttpGet]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -89,6 +108,12 @@ namespace CloudFsmApi.Controllers
             return GetCurrentScene();
         }
 
+        /// <summary>
+        /// Report when a lantern enters a beacon area.
+        /// </summary>
+        /// <param name="lanternID"></param>
+        /// <param name="beaconID"></param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -107,6 +132,10 @@ namespace CloudFsmApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Get the json data file mapping lanterns to characters.
+        /// </summary>
+        /// <returns>json file containing lantern to character mappings</returns>
         [HttpGet]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -120,6 +149,11 @@ namespace CloudFsmApi.Controllers
             return Json(json);
         }
 
+
+        /// <summary>
+        /// Start running the state machine
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -156,6 +190,12 @@ namespace CloudFsmApi.Controllers
             return Json(resp);
         }
 
+        /// <summary>
+        /// Deprecated.  Takes json to be executed immediately.
+        /// </summary>
+        /// <param name="script">json list containing these possible properties as instructions: R|Restart the play, T|Send beacon event with T.BeaconId, T.LanternId, S|Jump
+        /// </param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -188,6 +228,11 @@ namespace CloudFsmApi.Controllers
             return Json(resp);
         }
 
+        /// <summary>
+        /// Same as "run" but operating on the provided scene definition json file.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -220,6 +265,12 @@ namespace CloudFsmApi.Controllers
             return Json(resp);
         }
 
+        /// <summary>
+        /// Change (or create new) a character's mapping to a lantern id
+        /// </summary>
+        /// <param name="characterName"></param>
+        /// <param name="lanternId"></param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -261,6 +312,11 @@ namespace CloudFsmApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Upload json with character config
+        /// </summary>
+        /// <param name="characters">Character configuration json file</param>
+        /// <returns>"Ok" if successful</returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -283,6 +339,11 @@ namespace CloudFsmApi.Controllers
             return Json(resp);
         }
 
+        /// <summary>
+        /// Upload json file mapping lanterns to characters
+        /// </summary>
+        /// <param name="lantern2Character">json file containing lantern to character mappings</param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
@@ -303,6 +364,11 @@ namespace CloudFsmApi.Controllers
             return Json(resp);
         }
 
+        /// <summary>
+        /// Upload a json file defining the scenes and steps for the show state machine.
+        /// </summary>
+        /// <param name="scenes">json file with scene definitions</param>
+        /// <returns>Load Ok if upload succeeded.</returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
