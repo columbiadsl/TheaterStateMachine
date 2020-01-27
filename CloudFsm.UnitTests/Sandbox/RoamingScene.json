@@ -1,0 +1,55 @@
+{
+  "RS1": {
+    "Description": "Test roaming scene 1",
+    "DurationSec": 36000,
+    "Type": "Roaming",
+    "RequiredAVA": "AVA001",
+    "Steps": {
+      "Step1": {
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "test",
+              "Value": 1000
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "Step2": {
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 2000
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "Step3": {
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 3000
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    }
+  }
+}

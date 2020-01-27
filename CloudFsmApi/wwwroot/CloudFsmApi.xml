@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+  <assembly>
+    <name>CloudFsmApi</name>
+  </assembly>
+  <members>
+    <member name="T:CloudFsmApi.Controllers.SceneController">
+      <summary>
+        Runs the timing for the show
+      </summary>
+    </member>
+  </members>
+</doc>

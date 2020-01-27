@@ -1,0 +1,3454 @@
+{
+  "JohnAllan": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12092
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Ava",
+        "Steps": {
+          "AbandonmentPortalStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 10004
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AbandonmentSummoning": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 14112
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AbandonmentGoReminder": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 14190
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AbandonmentMidStairs": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 14047
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AbandonmentTopofStairs": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 14048
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Roaming",
+        "Steps": {
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Extra": {
+        "Description": null,
+        "Type": "Roaming",
+        "Steps": null,
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "DavidPoe": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12092
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13040
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13040
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13041
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13040
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Ava",
+        "Steps": {
+          "AbandonmentPortalStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 10004
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AbandonmentSummoning": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 14112
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AbandonmentGoReminder": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 14190
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AbandonmentMidStairs": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 14047
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AbandonmentTopofStairs": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 14048
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "Montressor": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeanceStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15115
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VeneganceMuttering": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15150
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "WilliamPoe": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Roaming",
+        "Steps": {
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {
+          "BargainGetCloak": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17124
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "BargainHouseRemind": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17193
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {
+          "AcceptStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 18142
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AcceptRemindWilliam": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 18218
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "RufusGriswold": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeanceStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15115
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VeneganceMuttering": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15150
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "RUsher": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeanceStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15115
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VeneganceMuttering": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15150
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "Fortunato": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeanceStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15115
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VeneganceMuttering": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15150
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "Pluto": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeanceStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15115
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VeneganceMuttering": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15150
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "HopFrog": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeanceStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15115
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VeneganceMuttering": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15150
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "Virginia": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeancePortalVirginia": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 10004
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15118
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceEnd": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15051
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {
+          "AngerStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 16119
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "SarahWhitman": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {
+          "AngerNextSummmoning": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 10004
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AngerEnd": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 16055
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {
+          "BargainDupinLead": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17121
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "BargainCicada": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17122
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "SarahSheldon": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {
+          "AngerNextSummmoning": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 10004
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AngerEnd": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 16055
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {
+          "BargainDupinLead": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17121
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "BargainCicada": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17122
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "ElizabethEllet": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {
+          "AngerNextSummmoning": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 10004
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AngerEnd": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 16055
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {
+          "BargainDupinLead": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17121
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "BargainCicada": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17122
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "FrancisOsgood": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {
+          "AngerNextSummmoning": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 10004
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "AngerEnd": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 16055
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {
+          "BargainDupinLead": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17121
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "BargainCicada": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 17122
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "CharlesBaudelaire": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Ava",
+        "Steps": {
+          "VengeanceStart": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15115
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VeneganceMuttering": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15150
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "VengeanceSplitUp": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 15117
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "MariaClemm": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "RosaliePoe": {
+    "Scenes": {
+      "Reception": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "DupinPersonalTables": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12103
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Denial": {
+        "Description": "Different leitmotifs and lights except Eliza",
+        "Type": "Ava",
+        "Steps": {
+          "DenialLeitMotif": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialHouseBreath": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialPoeARFinish": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": null,
+                "Light": {
+                  "Type": "flickeroff",
+                  "Value": 0
+                },
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialLeitMotifReturn": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "DenialEndMusic": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "fadeout",
+                  "Value": 13039
+                },
+                "Light": null,
+                "SpecialText": null,
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      },
+      "Abandonment": {
+        "Description": "JohnAllen and DavidPoe only",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Vengeance": {
+        "Description": "Montressor, JohnLegrand, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog plus Virginia at the end",
+        "Type": "Roaming",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Anger": {
+        "Description": "Virginia at top and SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Bargaining": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood at top, WilliamPoe at end",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      },
+      "Acceptance": {
+        "Description": "From appreciative inquiry onward",
+        "Type": "Ava",
+        "Steps": {},
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  },
+  "MariaRoget": {
+    "Scenes": {
+      "Scenes": {
+        "Description": null,
+        "Type": "Ava",
+        "Steps": null,
+        "Triggers": null
+      }
+    },
+    "Name": null,
+    "Description": null
+  }
+}

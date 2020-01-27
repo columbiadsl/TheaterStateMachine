@@ -1,0 +1,72 @@
+{
+  "JohnAllan": {
+    "Scenes": {
+      "RS1": {
+        "Description": "Test Command for Roaming",
+        "Type": "Roaming",
+        "Triggers": {
+          "BEA001": [
+            {
+              "Cue": null,
+              "Sound": {
+                "Type": "roaming test",
+                "Value": 1000
+              },
+              "Light": null,
+              "SpecialText": "RS1.BEA001[0]",
+              "DurationSec": 0,
+              "PaddingSec": 0
+            }
+          ],
+          "BEA002": [
+            {
+              "Cue": null,
+              "Sound": {
+                "Type": "play",
+                "Value": 2
+              },
+              "Light": null,
+              "SpecialText": null,
+              "DurationSec": 0,
+              "PaddingSec": 0
+            }
+          ]
+        },
+        "Steps": {
+          "Step2": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 2000
+                },
+                "Light": null,
+                "SpecialText": "RS1.Step2[0]",
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "Step3": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 3000
+                },
+                "Light": null,
+                "SpecialText": "RS1.Step3[0]",
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

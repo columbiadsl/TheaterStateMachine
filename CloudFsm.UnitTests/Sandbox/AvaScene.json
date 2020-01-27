@@ -1,0 +1,47 @@
+{
+  "AVA1": {
+    "Description": "Test AVA scene 1",
+    "DurationSec": 36000,
+    "Type": "AVA",
+    "Participants": [ "JohnAllan", "DavidPoe", "Montressor" ],
+    "Steps": {
+      "Step1": {
+        "Description": "AVA1 Step1",
+        "RequiredID": null,
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 3000,
+        "OnTriggerNext": "Step2"
+      },
+      "Step2": {
+        "Description": "AVA1 Step2",
+        "RequiredID": [ "ALL" ],
+        "RequiredBeacons": [ "room2", "book2" ],
+        "TimeTriggerSec": 3000,
+        "OnTriggerNext": "AVA2:Step1"
+      }
+    }
+  },
+  "AVA2": {
+    "Description": "Test AVA scene 2",
+    "DurationSec": 36000,
+    "Type": "AVA",
+    "Steps": {
+      "Step1": {
+        "Description": "AVA2 Step1",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 1000
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    }
+  }
+}

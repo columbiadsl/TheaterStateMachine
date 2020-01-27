@@ -1,0 +1,97 @@
+variables:
+  - group: 'MSFT.Mkt.Raven'
+
+stages:
+  - stage: 'Build'
+    displayName: 'Build the web API'
+    jobs:
+    - job: 'Build'
+      pool:
+        vmImage: 'ubuntu-16.04'
+
+      steps:
+      #Specify version of .Net Core
+      - task: UseDotNet@2
+        displayName: 'Use .Net Core sdk in version $(dotNetCoreVersion)'
+        inputs:
+          version: '$(dotNetCoreVersion)'
+          includePreviewVersions: true
+
+      #Prepare SonarCloud Analysis
+      - task: SonarCloudPrepare@1
+        inputs:
+          SonarCloud: 'MESH sonarcloud'
+          organization: 'meshsystems'
+          scannerMode: 'MSBuild'
+          projectKey: '$(sonarCloudProjectKey)'
+          projectName: '$(sonarCloudProjectName)'
+          extraProperties: |
+            sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
+
+      #Restore from nuget
+      - task: DotNetCoreCLI@2
+        displayName: 'Restore nuget'
+        inputs:
+          command: 'restore'
+          projects: '$(buildProjectsPath)'
+
+      #Build
+      - task: DotNetCoreCLI@2
+        displayName: 'Build projects - $(BuildConfiguration)'
+        inputs:
+          command: 'build'
+          projects: '$(buildProjectsPath)'
+          arguments: '--configuration $(BuildConfiguration) --no-restore'
+
+      #Download ReportGenerator for devops reports
+      - task: DotNetCoreCLI@2
+        displayName: 'Install ReportGenerator'
+        inputs:
+          command: custom
+          custom: tool
+          arguments: 'install --global dotnet-reportgenerator-globaltool'
+          
+      #Tests
+      - task: DotNetCoreCLI@2
+        displayName: 'Tests'
+        inputs:
+          command: test
+          publishWebProjects: false
+          publishTestResults: true
+          projects: '$(testProjectsPath)'
+          arguments: '--configuration $(BuildConfiguration) --no-build --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura%2copencover" /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/ /p:Exclude=[NUnit3.*]* /p:Exclude=[xunit*]*'
+
+      #Generate a report for devops
+      - script: |
+          reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
+        displayName: 'Create code coverage report'
+
+      #SonarCloud Analyze
+      - task: SonarCloudAnalyze@1
+
+      #SonarCloud Publish
+      - task: SonarCloudPublish@1
+        inputs:
+          pollingTimeoutSec: '300'
+
+      #Publish code coverage report to devops
+      - task: PublishCodeCoverageResults@1
+        displayName: 'Publish code coverage report'
+        inputs:
+          codeCoverageTool: 'cobertura'
+          summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+
+      - task: DotNetCoreCLI@2
+        displayName: 'Publish the Api project - $(buildConfiguration)'
+        inputs:
+          command: 'publish'
+          projects: '**/CloudFsmApi.csproj'
+          publishWebProjects: false
+          arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+          zipAfterPublish: true
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact: $(artifactName)'
+        inputs:
+          PathtoPublish: '$(build.artifactstagingdirectory)/$(buildConfiguration)'
+          ArtifactName: '$(artifactName)'

@@ -1,0 +1,255 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environment": {
+      "type": "string",
+      "allowedValues": [
+        "Dv"
+      ],
+      "defaultValue": "Dv",
+      "metadata": {
+        "description": "A 2 letter designator for environment"
+      }
+    }
+  },
+  "variables": {
+    "iotHubSasPolicy": "service",
+    "uniqueNameAffix": "[substring(uniqueString(resourceGroup().id), 0, 4)]",
+    "resourceNames": {
+      "sharedAppInsights": "[concat(parameters('environment'), 'Rvn', variables('uniqueNameAffix'), 'ShrAi')]",
+      "sharedStorage": "[toLower(concat(parameters('environment'), 'Rvn', variables('uniqueNameAffix'), 'ShrSa'))]",
+      "apiCompute": "[concat(parameters('environment'), 'Rvn', variables('uniqueNameAffix'), 'ApiAsp')]",
+      "apiSite": "[concat(parameters('environment'), 'Rvn', variables('uniqueNameAffix'), 'ApiAs')]",
+      "iotHub": "[concat(parameters('environment'), 'Rvn', variables('uniqueNameAffix'), 'Ith')]",
+      "msgProcCompute": "[concat(parameters('environment'), 'Rvn', variables('uniqueNameAffix'), 'MsgprocAsp')]",
+      "msgProcApp": "[concat(parameters('environment'), 'Rvn', variables('uniqueNameAffix'), 'MsgprocFa')]"
+    },
+    "services": [
+      {
+        "comments": "Raven API",
+        "condition": true,
+        "compute": {
+          "name": "[variables('resourceNames').apiCompute]",
+          "tier": "S1",
+          "capacity": 1
+        },
+        "site": {
+          "name": "[variables('resourceNames').apiSite]",
+          "kind": "app",
+          "properties": {
+            "alwaysOn": false,
+            "clientAffinityEnabled": false,
+            "httpsOnly": true
+          }
+        }
+      },
+      {
+        "comments": "Raven Processor",
+        "condition": true,
+        "compute": {
+          "name": "[variables('resourceNames').msgProcCompute]",
+          "tier": "Y1",
+          "capacity": 1
+        },
+        "site": {
+          "name": "[variables('resourceNames').msgProcApp]",
+          "kind": "functionapp",
+          "properties": {
+            "alwaysOn": false,
+            "clientAffinityEnabled": false,
+            "httpsOnly": true
+          }
+        }
+      }
+    ],
+    "storage": [
+      {
+        "comments": "Raven storage",
+        "condition": true,
+        "name": "[variables('resourceNames').sharedStorage]",
+        "kind": "StorageV2",
+        "skuName": "Standard_ZRS",
+        "properties": {
+          "supportsHttpsTrafficOnly": true
+        }
+      }
+    ]
+  },
+  "resources": [
+    {
+      "comments": "Shared application insights",
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[variables('resourceNames').sharedAppInsights]",
+      "location": "[resourceGroup().location]",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web"
+      }
+    },
+    {
+      "apiVersion": "2019-07-01-preview",
+      "type": "Microsoft.Devices/IotHubs",
+      "name": "[variables('resourceNames').iotHub]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "eventHubEndpoints": {
+          "events": {
+            "retentionTimeInDays": 1,
+            "partitionCount": 2
+          }
+        },
+        "features": "None"
+      },
+      "sku": {
+        "name": "F1",
+        "capacity": 1
+      }
+    },
+    {
+      "condition": "[variables('storage')[copyIndex()].condition]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "copy": {
+        "name": "storagecopy",
+        "count": "[length(variables('storage'))]"
+      },
+      "name": "[variables('storage')[copyIndex()].name]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "[variables('storage')[copyIndex()].skuName]"
+      },
+      "kind": "[variables('storage')[copyIndex()].kind]",
+      "properties": {
+        "supportsHttpsTrafficOnly": "[variables('storage')[copyIndex()].properties.supportsHttpsTrafficOnly]"
+      }
+    },
+    {
+      "condition": "[variables('services')[copyIndex()].condition]",
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2018-02-01",
+      "copy": {
+        "name": "computecopy",
+        "count": "[length(variables('services'))]"
+      },
+      "name": "[variables('services')[copyIndex()].compute.name]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+      },
+      "sku": {
+        "name": "[variables('services')[copyIndex()].compute.tier]",
+        "capacity": "[variables('services')[copyIndex()].compute.capacity]"
+      }
+    },
+    {
+      "condition": "[variables('services')[copyIndex()].condition]",
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2018-11-01",
+      "copy": {
+        "name": "sitecopy",
+        "count": "[length(variables('services'))]"
+      },
+      "name": "[variables('services')[copyIndex()].site.name]",
+      "kind": "[variables('services')[copyIndex()].site.kind]",
+      "location": "[resourceGroup().location]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('services')[copyIndex()].compute.name)]"
+      ],
+      "properties": {
+        "clientAffinityEnabled": "[variables('services')[copyIndex()].site.properties.clientAffinityEnabled]",
+        "httpsOnly": "[variables('services')[copyIndex()].site.properties.httpsOnly]",
+        "siteConfig": {
+          "alwaysOn": "[variables('services')[copyIndex()].site.properties.alwaysOn]"
+        },
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('services')[copyIndex()].compute.name)]"
+      },
+      "resources": [
+        {
+          "type": "config",
+          "apiVersion": "2018-11-01",
+          "name": "logs",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('services')[copyIndex()].site.name)]"
+          ],
+          "properties": {
+            "httpLogs": {
+              "fileSystem": {
+                "retentionInMb": 35,
+                "retentionInDays": 3,
+                "enabled": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "condition": "[variables('services')[0].condition]",
+      "comments": "Raven API app settings",
+      "apiVersion": "2018-11-01",
+      "type": "Microsoft.Web/sites/config",
+      "name": "[ concat(variables('services')[0].site.name, '/', 'appsettings') ]",
+      "dependsOn": [
+        "[ resourceId('Microsoft.Web/sites', variables('services')[0].site.name) ]"
+      ],
+      "properties": {
+        "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(variables('resourceNames').sharedAppInsights).InstrumentationKey]",
+        "APPINSIGHTS_PROFILERFEATURE_VERSION": "1.0.0",
+        "APPINSIGHTS_SNAPSHOTFEATURE_VERSION": "1.0.0",
+        "ApplicationInsightsAgent_EXTENSION_VERSION": "~2",
+        "DiagnosticServices_EXTENSION_VERSION": "~3",
+        "DownlinkManager:IotHubSvcCnxnString": "[concat('HostName=', variables('resourceNames').iotHub, '.azure-devices.net;SharedAccessKeyName=', variables('iotHubSasPolicy'), ';SharedAccessKey=', listKeys(resourceId('Microsoft.Devices/IotHubs/IotHubKeys', variables('resourceNames').iotHub, variables('iotHubSasPolicy')), '2018-04-01').primaryKey)]",
+        "InstrumentationEngine_EXTENSION_VERSION": "~1",
+        "SnapshotDebugger_EXTENSION_VERSION": "~1",
+        "Storage:StorageCnxnString": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storage')[0].name, ';AccountKey=', listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storage')[0].name), '2019-04-01').keys[0].value, ';')]",
+        "WEBSITE_HTTPLOGGING_RETENTION_DAYS": 3,
+        "XDT_MicrosoftApplicationInsights_BaseExtensions": "~1",
+        "XDT_MicrosoftApplicationInsights_Mode": "recommended"
+      }
+    },
+    {
+      "condition": "[variables('services')[1].condition]",
+      "comments": "Raven API app settings",
+      "apiVersion": "2018-11-01",
+      "type": "Microsoft.Web/sites/config",
+      "name": "[ concat(variables('services')[1].site.name, '/', 'appsettings') ]",
+      "dependsOn": [
+        "[ resourceId('Microsoft.Web/sites', variables('services')[1].site.name) ]"
+      ],
+      "properties": {
+        "ApiHostname": "[reference(variables('resourceNames').apiSite).defaultHostName]",
+        "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(variables('resourceNames').sharedAppInsights).InstrumentationKey]",
+        "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storage')[0].name, ';AccountKey=', listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storage')[0].name), '2019-04-01').keys[0].value, ';')]",
+        "FUNCTIONS_EXTENSION_VERSION": "~2",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "IotHubSvcCnxnString": "[concat('Endpoint=', reference(resourceId('Microsoft.Devices/IoTHubs', variables('resourceNames').iotHub), providers('Microsoft.Devices', 'IoTHubs').apiVersions[0]).eventHubEndpoints.events.endpoint, ';SharedAccessKeyName=', variables('iotHubSasPolicy'), ';SharedAccessKey=', listKeys(resourceId('Microsoft.Devices/IotHubs/IotHubKeys', variables('resourceNames').iotHub, variables('iotHubSasPolicy')), '2018-04-01').primaryKey, ';EntityPath=', reference(resourceId('Microsoft.Devices/IoTHubs', variables('resourceNames').iotHub), providers('Microsoft.Devices', 'IoTHubs').apiVersions[0]).eventHubEndpoints.events.path)]",
+        "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storage')[0].name, ';AccountKey=', listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storage')[0].name), '2019-04-01').keys[0].value, ';')]",
+        "WEBSITE_CONTENTSHARE": "[toLower(variables('services')[1].site.name)]",
+        "WEBSITE_HTTPLOGGING_RETENTION_DAYS": 3
+      }
+    }
+  ],
+  "outputs": {
+    "ApiHostname": {
+      "type": "string",
+      "value": "[reference(variables('resourceNames').apiSite).defaultHostName]"
+    },
+    "IotHubSvcCnxnString_Api": {
+      "type": "string",
+      "value": "[concat('HostName=', variables('resourceNames').iotHub, '.azure-devices.net;SharedAccessKeyName=', variables('iotHubSasPolicy'), ';SharedAccessKey=', listKeys(resourceId('Microsoft.Devices/IotHubs/IotHubKeys', variables('resourceNames').iotHub, variables('iotHubSasPolicy')), '2018-04-01').primaryKey)]"
+
+    },
+    "IotHubSvcCnxnString_FxnApp": {
+      "type": "string",
+      "value": "[concat('Endpoint=', reference(resourceId('Microsoft.Devices/IoTHubs', variables('resourceNames').iotHub), providers('Microsoft.Devices', 'IoTHubs').apiVersions[0]).eventHubEndpoints.events.endpoint, ';SharedAccessKeyName=', variables('iotHubSasPolicy'), ';SharedAccessKey=', listKeys(resourceId('Microsoft.Devices/IotHubs/IotHubKeys', variables('resourceNames').iotHub, variables('iotHubSasPolicy')), '2018-04-01').primaryKey, ';EntityPath=', reference(resourceId('Microsoft.Devices/IoTHubs', variables('resourceNames').iotHub), providers('Microsoft.Devices', 'IoTHubs').apiVersions[0]).eventHubEndpoints.events.path)]"
+    },
+    "StorageCnxnString": {
+      "type": "string",
+      "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storage')[0].name, ';AccountKey=', listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storage')[0].name), '2019-04-01').keys[0].value, ';')]"
+    }
+  }
+}

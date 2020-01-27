@@ -1,0 +1,1703 @@
+{
+  "Reception": {
+    "Description": "Show from start to Denial",
+    "DurationSec": 20,
+    "Type": "Ava",
+    "Steps": {
+      "Pre-show": {
+        "Description": "C0: Waiting for Guests",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "LobbyEntrance",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": {
+              "Type": "on",
+              "Value": 35
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "LobbyEntrance": {
+        "Description": "C1: Start of show",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 180,
+        "OnTriggerNext": "DupinEnters",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 11006
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinEnters": {
+        "Description": "C2: Dupin introduces himself",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 14,
+        "OnTriggerNext": "RecUpstairs",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 11082
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "RecUpstairs": {
+        "Description": "C3: Users start heading upstairs",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 1,
+        "OnTriggerNext": "RecUpstairs2",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "fadeout",
+              "Value": 11082
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "RecUpstairs2": {
+        "Description": "C3.5: Second Sound Cue",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "RecGreatHall",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 11007
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "RecGreatHall": {
+        "Description": "C4: Dupin tells them to go to the light",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 24,
+        "OnTriggerNext": "RecEnterRoom",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 11083
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "RecEnterRoom": {
+        "Description": "C5: Last line of chant - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "DupirDiningRoom",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupirDiningRoom": {
+        "Description": "C6: Dupin speaks about ILight",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 1,
+        "OnTriggerNext": "DupirDiningRoom2",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "fadeout",
+              "Value": 11007
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupirDiningRoom2": {
+        "Description": "C6.5: Second Cue",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "DupinMoreWelcome",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 11083
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinMoreWelcome": {
+        "Description": "C7: Dupin says DuringNow",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "HouseCloseDoors",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 1284
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "HouseCloseDoors": {
+        "Description": "C9: House Tells them to Close Doors",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 20,
+        "OnTriggerNext": "DupinTables",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 12214
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinTables": {
+        "Description": "C10: Dupin says NowWorks",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 20,
+        "OnTriggerNext": "DupinPersonalTables",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 1291
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinPersonalTables": {
+        "Description": "C11: Dupin gives individual cues",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "DupinReadBook",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinReadBook": {
+        "Description": "C12: Dupin tells them to read the book",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 20,
+        "OnTriggerNext": "DupinTokens",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 12104
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinTokens": {
+        "Description": "C13: Dupin reveal the tokens",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "DupinStartChant",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 12105
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinStartChant": {
+        "Description": "C14: Dupin starts chant",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "DupinLeadChant",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 12107
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinLeadChant": {
+        "Description": "C15: Dupin leads the chant ",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "ChantSwirls",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 12108
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "ChantSwirls": {
+        "Description": "C16: Chant Swirls around Room",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 3,
+        "OnTriggerNext": "RecFadeOut",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 1232
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "RecFadeOut": {
+        "Description": "C17: Music fades out in Reception",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "ChantEnd",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "ChantEnd": {
+        "Description": "C18: Last line of chant",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 10,
+        "OnTriggerNext": "DupinPicksUpRec",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 1238
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupinPicksUpRec": {
+        "Description": "C19: Dupin says HereSeek",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 10,
+        "OnTriggerNext": "RecDoorCreak",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 12109
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "RecDoorCreak": {
+        "Description": "C21: Doors creak open",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 45,
+        "OnTriggerNext": "CathedralIn",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "CathedralIn": {
+        "Description": "C22: Loads of Sound in Hall",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 60,
+        "OnTriggerNext": "DupintoDenial",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DupintoDenial": {
+        "Description": "C22: Dupin says GoLight",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "Denial:DenialStart",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 12110
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    },
+    "Participants": null
+  },
+  "Denial": {
+    "Description": "This scene starts from the hall way and then goes through the piano room",
+    "DurationSec": 20,
+    "Type": "Ava",
+    "Steps": {
+      "DenialStart": {
+        "Description": "C24: Poe reads letter",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "DenialLeitMotif",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 13144
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DenialLeitMotif": {
+        "Description": "C25: Users get leitmotif from track",
+        "RequiredID": [ "ALL" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 200,
+        "OnTriggerNext": "DenialHouseBreath",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DenialHouseBreath": {
+        "Description": "C27: House breath in and leit motif out",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "DenialPoeARFinish",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DenialPoeARFinish": {
+        "Description": "C29: Poe AR finishes and Poe IRL happens",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 45,
+        "OnTriggerNext": "DenialSFX",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DenialSFX": {
+        "Description": "C32: DON'T KNOW WHAT THIS IS",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 3,
+        "OnTriggerNext": "DenialPortal",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DenialPortal": {
+        "Description": "C33: Portal sound triggers in AR",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 5,
+        "OnTriggerNext": "DenialLietMotifReturn",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 10004
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DenialLietMotifReturn": {
+        "Description": "C34: Character leitmotif returns",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 60,
+        "OnTriggerNext": "DenialAvaExit",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DenialAvaExit": {
+        "Description": "C35: Dupin picks up pieces",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "DenialEndMusic",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 34001
+            },
+            "Light": {
+              "Type": "on",
+              "Value": 0
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "DenialEndMusic": {
+        "Description": "C36: Scene ends with lights up and music",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "DenialEndSFX",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": {
+              "Type": "bloom",
+              "Value": 35
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "SDenialEndSFX": {
+        "Description": "C38: Final sound cue of Denial",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "Abandonment",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    },
+    "Participants": null
+  },
+  "Abandonment": {
+    "Description": "DavidPoe and JohnAllen do the scene in the museum room",
+    "DurationSec": 20,
+    "Type": "Ava",
+    "Steps": {
+      "AbandonmentPortalStart": {
+        "Description": "C40: DavidPoe and JohnAllen are summoned - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "AbandonmentSummoning",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentSummoning": {
+        "Description": "C41: Dupin tels them to go now",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "AbandonmentGoReminder",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentGoReminder": {
+        "Description": "C42: House Follow the Laughter",
+        "RequiredID": [ "DavidPoe", "JohnAllen" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "AbandonmentMidStairs",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentMidStairs": {
+        "Description": "C43: DavidPoe and JohnAllen on stairs",
+        "RequiredID": [ "DavidPoe", "JohnAllen" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "AbandonmentTopofStairs",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentTopofStairs": {
+        "Description": "C44: DavidPoe and JohnAllen at the top of stairs",
+        "RequiredID": [ "DavidPoe", "JohnAllen" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "AbandonmentPoeAR",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentPoeAR": {
+        "Description": "C45: DavidPoe and JohnAllen in room and Poe AR plays - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 116,
+        "OnTriggerNext": "AbandonmentPreAREnd",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 14145
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentPreAREnd": {
+        "Description": "C46: Sound cue right before Poe AR ends",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 4,
+        "OnTriggerNext": "AbandomentPoeAREnd",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentPoeAREnd": {
+        "Description": "C47: Ava vibrates at end of Poe AR and does her scene",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 24,
+        "OnTriggerNext": "AbandomentAvaOut",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandomentAvaOut": {
+        "Description": "C48: Ava buzzes to tell her to GET OUT",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 0,
+        "OnTriggerNext": "AbandonmentDupinCleanup",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentDupinCleanup": {
+        "Description": "C49: Dupin picks up the pieces - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "AbandonmentGlass",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 14113
+            },
+            "Light": {
+              "Type": "on",
+              "Value": 0
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentGlass": {
+        "Description": "C50: Sound of broken glass",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 3,
+        "OnTriggerNext": "AbandonmentEnds",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AbandonmentEnds": {
+        "Description": "C51: Dupin tells everyone to leave",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "Vengeance",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 14114
+            },
+            "Light": {
+              "Type": "bloom",
+              "Value": 35
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    },
+    "Participants": null
+  },
+  "Vengeance": {
+    "Description": "Montressor, WilliamPoe, OldMan, CharlesBaudelaire, RufusGriswold, RUsher, Fortunato, Pluto, HopFrog called into room",
+    "DurationSec": 6000,
+    "Type": "Ava",
+    "Steps": {
+      "VengeanceStart": {
+        "Description": "C52: Just before characters are summmoned - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 3,
+        "OnTriggerNext": "VeneganceMuttering",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VeneganceMuttering": {
+        "Description": "C53: Hear muttering",
+        "RequiredID": [ "Montressor", "JohnLegrand", "OldMan", "CharlesBaudelaire", "RufusGriswold", "RUsher", "Fortunato", "Pluto", "HopFrog" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 60,
+        "OnTriggerNext": "VengeanceLaughter",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeanceLaughter": {
+        "Description": "C54: Laughter in AR",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "VengeancePoeAR",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "Step3": {
+        "Description": "C56: Characters in room and Poe AR starts - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "VengeancePreCue",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 15147
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeancePreCue": {
+        "Description": "C57: Sound cue right before Poe AR ends",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 4,
+        "OnTriggerNext": "VengeancePoeAREnd",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeancePoeAREnd": {
+        "Description": "C58: Buzz Ava that Poe AR is over and Poe IRL - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 60,
+        "OnTriggerNext": "VengeanceGnawing",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeanceGnawing": {
+        "Description": "C59: Gnawing Teeth Sound",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 60,
+        "OnTriggerNext": "VengeanceLantern",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeanceLantern": {
+        "Description": "C60: Lantern smash and lights out",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "VengeanceAvaOut",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": {
+              "Type": "on",
+              "Value": 0
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeanceAvaOut": {
+        "Description": "C61: Buzz Ava to get out",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "VengeanceDupinCleanup",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeanceDupinCleanup": {
+        "Description": "C62: Poe leaves and Dupin picks up",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "VengeancePortalVirginia",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 15116
+            },
+            "Light": {
+              "Type": "bloom",
+              "Value": 35
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeancePortalVirginia": {
+        "Description": "C63: Trigger Virginia sound - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 5,
+        "OnTriggerNext": "VengeanceSplitUp",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeanceSplitUp": {
+        "Description": "C64: Dupin sends everyone roaming with Virginia different - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 60,
+        "OnTriggerNext": "VengeanceEnd",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "VengeanceEnd": {
+        "Description": "C65: Virginia gets chimes",
+        "RequiredID": [ "Virginia" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "Anger",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    },
+    "Participants": null
+  },
+  "Anger": {
+    "Description": "Virginia in bed scene",
+    "DurationSec": 20,
+    "Type": "Ava",
+    "Steps": {
+      "AngerStart": {
+        "Description": "C66: Virgina summmoned to bed",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "AngerPoeAR",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AngerPoeAR": {
+        "Description": "C67:Ava goes to wash basin and Poe AR - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 24,
+        "OnTriggerNext": "AngerPreCue",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 16148
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AngerPreCue": {
+        "Description": "C68: Sound Cue before end of Poe AR",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 4,
+        "OnTriggerNext": "AngerPoeAREnd",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "fadeup",
+              "Value": 16053
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AngerPoeAREnd": {
+        "Description": "C69: Ava buzzed at end of Poe AR and Poe IRL",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 16,
+        "OnTriggerNext": "AngerSirenSFX",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AngerSirenSFX": {
+        "Description": "C70: Sound cue 20 seconds in",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 24,
+        "OnTriggerNext": "AngerAvaOut",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AngerAvaOut": {
+        "Description": "C72: Ava buzzed to get out of scene",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "AngerDupinCleanup",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AngerDupinCleanup": {
+        "Description": "C72: Ava leaves and Dupin picks up pieces - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 180,
+        "OnTriggerNext": "AngerNextSummmoning",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 1612
+            },
+            "Light": {
+              "Type": "on",
+              "Value": 0
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AngerNextSummmoning": {
+        "Description": "C73: Pre-summoning sound for characters - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 5,
+        "OnTriggerNext": "AngerEnd",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": {
+              "Type": "bloom",
+              "Value": 35
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AngerEnd": {
+        "Description": "SarahWhitman, SarahSheldon, ElizabethEllet, FrancisOsgood summmoned",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "Bargaining",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    },
+    "Participants": null
+  },
+  "Bargaining": {
+    "Description": "Ava back in Reception",
+    "DurationSec": 6000,
+    "Type": "Ava",
+    "Steps": {
+      "BargainStart": {
+        "Description": "C75: Ava screams and kicks it off",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 3,
+        "OnTriggerNext": "BargainQuiet",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainQuiet": {
+        "Description": "C76: Ava buzzes to stop wail",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 4,
+        "OnTriggerNext": "BargainBirds",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainBirds": {
+        "Description": "C77: Birds Kick In",
+        "RequiredID": [],
+        "RequiredBeacons": [],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "BargainDupinLead",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainDupinLead": {
+        "Description": "C78: Dupin leads guests in",
+        "RequiredID": [ "SarahWhitman", "SarahSheldon", "ElizabethEllet", "FrancisOsgood" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "BargainCicada",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainCicada": {
+        "Description": "C79: Sound Effect for the Women",
+        "RequiredID": [],
+        "RequiredBeacons": [],
+        "TimeTriggerSec": 0,
+        "OnTriggerNext": "BargainDupinFrames",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainDupinFrames": {
+        "Description": "C79.5: Dupin talks to everyone GoHeartbreak",
+        "RequiredID": [ "SarahWhitman", "SarahSheldon", "ElizabethEllet", "FrancisOsgood" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 0,
+        "OnTriggerNext": "BargainPoeAR",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 17056
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainPoeAR": {
+        "Description": "C80: Poe AR begins",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "BargainPreCue",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 17149
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainPreCue": {
+        "Description": "C81: Pre Cue for Poe AR end",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 4,
+        "OnTriggerNext": "BargainPoeAREnds",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainPoeAREnds": {
+        "Description": "C82: Buzz Ava and trigger AR for Poe IRL",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 0,
+        "OnTriggerNext": "BargainDupinCleanup",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainDupinCleanup": {
+        "Description": "C85: Ava exits and Dupin cleans up - GET TIMING",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "BargainGetCloak",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 17123
+            },
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainGetCloak": {
+        "Description": "C85: Tell William to take cloak - get timing",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "BargainEndMusic",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainEndMusic": {
+        "Description": "C86: Ending Music Cue",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 4,
+        "OnTriggerNext": "BargainHouseRemind",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "BargainHouseRemind": {
+        "Description": "Remind William to take cloak",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "Acceptance",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    },
+    "Participants": null
+  },
+  "Acceptance": {
+    "Description": "End of show",
+    "DurationSec": 20,
+    "Type": "Ava",
+    "Steps": {
+      "AcceptStart": {
+        "Description": "C88: Tell William to do the cloak",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 20,
+        "OnTriggerNext": "AcceptRemindWilliam",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AcceptRemindWilliam": {
+        "Description": "C89: House Reminds William",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "AcceptMusicStart",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AcceptMusicStart": {
+        "Description": "C30: Music cues at end of lines",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 0,
+        "OnTriggerNext": "AcceptAvaStairs",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AcceptanceAvaStairs": {
+        "Description": "C93: Ava ascends",
+        "RequiredID": [ "Ava" ],
+        "RequiredBeacons": [ "BeaconXXX" ],
+        "TimeTriggerSec": 30,
+        "OnTriggerNext": "AcceptAvaGone",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": {
+              "Type": "play",
+              "Value": 13082
+            },
+            "Light": {
+              "Type": "flickeroff",
+              "Value": 0
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AcceptAvaGone": {
+        "Description": "C94: Ava Gone",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "AcceptDupinCleanup",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": {
+              "Type": "on",
+              "Value": 0
+            },
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AcceptDupinCleanup": {
+        "Description": "C95: Dupin picks up pieces",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 12,
+        "OnTriggerNext": "AcceptFinalMusic",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "AcceptFinalMusic": {
+        "Description": "C97: Guests Descend",
+        "RequiredID": [ null ],
+        "RequiredBeacons": [ null ],
+        "TimeTriggerSec": 210,
+        "OnTriggerNext": "EndOfShow",
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      },
+      "EndOfShow": {
+        "Description": "Final final if needed",
+        "RequiredID": null,
+        "RequiredBeacons": null,
+        "TimeTriggerSec": 0,
+        "OnTriggerNext": null,
+        "Commands": [
+          {
+            "Cue": null,
+            "Sound": null,
+            "Light": null,
+            "SpecialText": null,
+            "DurationSec": 0,
+            "PaddingSec": 0
+          }
+        ]
+      }
+    },
+    "Participants": null
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "JohnAllan": {
+    "Scenes": {
+      "AVA1": {
+        "Description": "Specific Dupin tables and character cues",
+        "Type": "Ava",
+        "Steps": {
+          "Step1": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12092
+                },
+                "Light": null,
+                "SpecialText": "AVA1.Step1[0]",
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          },
+          "Step2": {
+            "DurationSec": 0,
+            "Commands": [
+              {
+                "Cue": null,
+                "Sound": {
+                  "Type": "play",
+                  "Value": 12092
+                },
+                "Light": null,
+                "SpecialText": "AVA1.Step2[0]",
+                "DurationSec": 0,
+                "PaddingSec": 0
+              }
+            ]
+          }
+        },
+        "Triggers": null
+      }
+    }
+  }
+}
