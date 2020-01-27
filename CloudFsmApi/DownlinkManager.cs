@@ -32,11 +32,12 @@ namespace CloudFsmApi
         /// Message explicitly addressed to Lantern
         /// </summary>
         /// <param name="lanternId"></param>
-        /// <param name="command"></param>
+        /// <param name="commands"></param>
         /// <param name="table"></param>
         /// <returns></returns>
         public async Task SendCloudToLanternMethodAsync(string lanternId, List<Command> commands, int? table = null)
         {
+            // Nothing to do if no lanternId or no commands
             if (commands == null)
                 return;
             if (commands.Count == 0)
@@ -50,6 +51,8 @@ namespace CloudFsmApi
                 {
                     cmd.LanternID = lanternId;
                 }
+
+                // Convert commands to json to send to IOT hub
 
                 DefaultContractResolver contractResolver = new DefaultContractResolver
                 {
@@ -77,9 +80,9 @@ namespace CloudFsmApi
         }
 
         /// <summary>
-        /// Other devices in the show like addressable speakers
+        /// Other devices in the show, such as addressable speakers
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="commands"></param>
         /// <returns></returns>
         public async Task SendCloudToOtherdeviceMethodAsync(List<Command> commands)
         {
@@ -89,7 +92,9 @@ namespace CloudFsmApi
                 return;
             try
             {
-                // Instead of lanternID: null appearing before scene level commands, could that be lanternID: allID instead? allID is how we call all lanterns, so it’s a safer thing for us to read that a null field.
+                // Since these commands don't apply to lanterns, LanternID needs a default value
+                // Instead of lanternID: null use lanternID: "allID"
+                //  allID is how we call all lanterns, so it’s a safer thing for us to read than a null field.
                 foreach (var cmd in commands)
                 {
                     cmd.LanternID = "allID";

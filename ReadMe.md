@@ -73,7 +73,7 @@ In addition to the steps above, complete the following to debug locally (note th
 # Usage
 
 ## State Machine API
-The API will be available at the url specified for the CloudFsmApi servics in your Azure console. (If you are running the through visual studio for local debugging, the url is: http://localhost:50486/).  The api has no default route at /, so you must specify the desired controller. For a list of routes and an interface for testing them, go to the /swagger path.  
+The API will be available at the url specified for the CloudFsmApi service in your Azure console. (If you are running the through visual studio for local debugging, the url is: http://localhost:50486/).  The api has no default route at /, so you must specify the desired controller. For a list of routes and an interface for testing them, go to the /swagger path.  
 
 More information about Swagger at these links:
 * https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.1
@@ -87,7 +87,7 @@ You need to post all three data files before you can start running the show. To 
 
 ## Local Server
 
-On your local network you will need to run the ProxyServer.  This sends show events to the API, and receives commands from the API.  You will also need your own server to process these commands and dispatch them to the various subsystems running your show (e.g. QLab for lighting or sound, IoT devices, etc.)
+On your local network you will need to run the ProxyServer.  This sends show events to the API, and receives commands from the state machine.  You will also need your own server to process these commands and dispatch them to the various subsystems running your show (e.g. QLab for lighting or sound, IoT devices, etc.)
 
 # Architecture
 

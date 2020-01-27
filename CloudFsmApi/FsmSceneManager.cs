@@ -18,6 +18,9 @@ using System.Timers;
 
 namespace CloudFsmApi
 {
+    /// <summary>
+    /// FsmSceneManager maintains the state of the State Machine.  It is intended to be used as a Singleton.
+    /// </summary>
     public sealed class FsmSceneManager : ISceneMgr
     {
         private readonly IDownlinkManager _downlink;
@@ -28,16 +31,34 @@ namespace CloudFsmApi
         private readonly Timer _tmr;
         private Dictionary<string, Scene> _scenes;
 
+        /// <summary>
+        /// Scene that is currently being executed
+        /// </summary>
         public string CurrentSceneName { get; private set; }
+
+        /// <summary>
+        /// Is the State Machine running?
+        /// </summary>
         public bool Running { get; private set; }
 
+        /// <summary>
+        /// Step (sub-part of scene) that is currently being executed
+        /// </summary>
         private Step _currentStep;
+
+        /// <summary>
+        /// Description text of current step (from json). Used only in SceneController.GetCurrentScene.
+        /// </summary>
         public string CurrentStepDescription { get { return _currentStep?.Description; } }
 
         private readonly BlobHelper _helper;
 
         private readonly StorageConfig _config;
 
+        /// <summary>
+        /// FsmSceneManager maintains the state of the State Machine.  It is intended to be used as a Singleton.
+        /// </summary>
+        /// <param name="downlink">DownlinkManager for connection to IoTHub service</param>
         public FsmSceneManager(IDownlinkManager downlink, IOptions<StorageConfig> config)
         {
             _config = config.Value;
@@ -85,6 +106,15 @@ namespace CloudFsmApi
             JumpTo(sceneName, stepName);
         }
 
+
+        /// <summary>
+        /// Go to the specified scene and step.
+        /// To stop the Scene state machine pass a scene name that is not defined in the JSON
+        /// Example1 Denial, Step0
+        /// Example2 End, anything
+        /// </summary>
+        /// <param name="sceneName">scene name, or END to terminate</param>
+        /// <param name="stepName">step name (can be anything if scene is END or doesn't exist)</param>
         public void JumpTo(string sceneName, string stepName)
         {
             if (!Running)
@@ -149,7 +179,7 @@ namespace CloudFsmApi
             var step = scene.JumpToStep(nextStep);
             if (step == null)
             {
-                Debug.WriteLine($"Trying to jump to setp {nextStep} failed");
+                Debug.WriteLine($"Attempted jump to step {nextStep} failed");
                 return false;
             }
 
@@ -217,9 +247,10 @@ namespace CloudFsmApi
 
         public void LoadCharacters(string characterJson)
         {
+            // If no character json provided, will load data from local file
             if (string.IsNullOrEmpty(characterJson))
             {
-                characterJson = System.IO.File.ReadAllText(@"Data\Characters.json");
+                characterJson = System.IO.File.ReadAllText(@"Data\characters.json");
             }
             Characters = JsonConvert.DeserializeObject<Dictionary<string, Character>>(characterJson);
         }
@@ -299,6 +330,10 @@ namespace CloudFsmApi
 
             return scriptResponse;
         }
+
+
+
+        //Manage Blob
 
         public async Task<string> ReadCharactersFromBlobAsync()
         {

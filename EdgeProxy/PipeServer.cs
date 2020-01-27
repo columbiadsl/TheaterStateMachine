@@ -15,8 +15,19 @@ namespace EdgeProxy
 {
     public class PipeServer
     {
+        /// <summary>
+        /// Azure connection string for proxy-multiplexer on IoT Hub
+        /// </summary>
         private const string IOT_CONNECTIONSTRING = "HostName=DvRvn3nvdIth.azure-devices.net;DeviceId=proxy-multiplexor;SharedAccessKey=FionzIkVTyUePWLOL4Jr9eUndfCxLCvBmXkCLUErDUI=";
+        
+        /// <summary>
+        /// Pipe connected to IoTHub service
+        /// </summary>
         private readonly NamedPipeServerStream _pipeCommand;
+
+        /// <summary>
+        /// Pipe connected to local server, to communicate with show's devices and systems
+        /// </summary>
         private readonly NamedPipeServerStream _pipeTelemetry;
 
         public PipeServer(NamedPipeServerStream pipeTelemetry, NamedPipeServerStream pipeCommand)
@@ -27,6 +38,7 @@ namespace EdgeProxy
 
         public async Task Worker(CancellationToken ct)
         {
+            // Set up message pump to send commands to the CloudFSMProcessor on the IoTHub
             Action<string> callback = SendCommand;
             var pmp = new MessagePump(IOT_CONNECTIONSTRING, callback);
             await pmp.OpenAsync();
@@ -64,6 +76,10 @@ namespace EdgeProxy
             }
         }
 
+        /// <summary>
+        /// Callback function for MessagePump; sends commands to CloudFsmProcessor
+        /// </summary>
+        /// <param name="cmd"></param>
         private void SendCommand(string cmd)
         {
             try

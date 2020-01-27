@@ -11,6 +11,11 @@ using System.Linq;
 
 namespace Model
 {
+    /// <summary>
+    /// Two types of scenes: 
+    /// Ava is our name for scenes that are attached to the main character
+    /// Roaming is for scenes that participants can discover through their own explorations
+    /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SceneTypeT
     {
@@ -31,7 +36,7 @@ namespace Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Total Durection of the scene in secons (resolution is second to enable fast testing)
+        /// Total Duration of the scene in seconds (resolution is second to enable fast testing)
         /// </summary>
         [JsonProperty]
         public int DurationSec { get; set; }

@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 
 namespace EdgeProxy
 {
+    /// <summary>
+    /// EdgeProxy runs on the local network, relaying telemetry to the cloud service, and 
+    ///  commands from the cloud service. Communicates with local show server.
+    /// </summary>
     internal class Program
     {
         private static void Main(string[] args)

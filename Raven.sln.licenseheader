@@ -1,51 +1,25 @@
 ﻿extensions: designer.cs generated.cs
 extensions: .cs .cpp .h
 #region copyright
-// © Copyright 2019 All Rights Reserved, http://mesh-systems.com/
-//
-// NOTICE:  All information contained herein is, and remains the
-// property of Mesh Systems, LLC and its suppliers, if any.
-// The intellectual and technical concepts contained herein are
-// proprietary to Mesh Systems, LLC and its suppliers and may be
-// covered by U.S. and Foreign Patents, patents in process, and
-// are protected by trade secret or copyright law. Dissemination
-// of this information or reproduction of this material is strictly
-// forbidden unless prior written permission is obtained from
-// Mesh Systems, LLC.
-//
+// This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+// To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter
+// to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 #endregion copyright
 
 extensions: .aspx .ascx
-<%-- 
+<%--
 #region copyright
-// © Copyright 2019 All Rights Reserved, http://mesh-systems.com/
-//
-// NOTICE:  All information contained herein is, and remains the
-// property of Mesh Systems, LLC and its suppliers, if any.
-// The intellectual and technical concepts contained herein are
-// proprietary to Mesh Systems, LLC and its suppliers and may be
-// covered by U.S. and Foreign Patents, patents in process, and
-// are protected by trade secret or copyright law. Dissemination
-// of this information or reproduction of this material is strictly
-// forbidden unless prior written permission is obtained from
-// Mesh Systems, LLC.
-//
+// This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+// To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter
+// to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 #endregion copyright
 
 --%>
 extensions:  .xml .config .xsd
 <!--
-// © Copyright 2019 All Rights Reserved, http://mesh-systems.com/
-//
-// NOTICE:  All information contained herein is, and remains the
-// property of Mesh Systems, LLC and its suppliers, if any.
-// The intellectual and technical concepts contained herein are
-// proprietary to Mesh Systems, LLC and its suppliers and may be
-// covered by U.S. and Foreign Patents, patents in process, and
-// are protected by trade secret or copyright law. Dissemination
-// of this information or reproduction of this material is strictly
-// forbidden unless prior written permission is obtained from
-// Mesh Systems, LLC.
-//
-
+#region copyright
+// This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+// To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter
+// to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+#endregion copyright
 -->

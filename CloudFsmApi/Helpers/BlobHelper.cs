@@ -23,6 +23,11 @@ namespace CloudFsmApi.Helpers
             _config = config;
         }
 
+        /// <summary>
+        /// Retrieve data from Azure Blob Storage
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public async Task<string> ReadFromBlobAsync(string fileName)
         {
             CloudBlockBlob cloudBlockBlob = await GetBlockBlobReference(fileName);
