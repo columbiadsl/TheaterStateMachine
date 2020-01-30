@@ -30,6 +30,9 @@ namespace Model
         }
     }
 
+    /// <summary>
+    /// Model and state info for a Character
+    /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
     public class Character
     {
@@ -39,25 +42,40 @@ namespace Model
 
         public List<Command> CurrentCommands { get; private set; }
 
+        /// <summary>
+        /// Metadata: description of character (not used in state machine)
+        /// </summary>
         [JsonProperty]
         public string Description { get; set; }
 
+        /// <summary>
+        /// Current state of Character as roaming or not
+        /// </summary>
         public bool IsRoaming { get; private set; }
 
         /// <summary>
-        /// Not part of the Json and it gets loaded from the table LanternToCharacter
+        /// Not part of the Character Json; gets loaded from the table LanternToCharacter
         /// </summary>
         public string LanternId { get; set; }
 
         /// <summary>
         /// Not part of the Json as it is the key for the dictionary,
-        /// but we populate it during load to help with debug messages
+        /// Populated from the LanternToCharacter json. 
+        /// Can be Used for more informative debug messages
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Scene specifications for this character
+        /// </summary>
         [JsonProperty]
         public Dictionary<string, CharacterScene> Scenes { get; set; }
 
+        /// <summary>
+        /// Called when the Character enters/leaves a beacon 
+        /// </summary>
+        /// <param name="beaconId"></param>
+        /// <returns></returns>
         public List<Command> OnBeaconChange(string beaconId)
         {
             if (_visited.Contains(beaconId))
@@ -126,14 +144,20 @@ namespace Model
         }
     }
 
+    /// <summary>
+    /// Scene definition for a character
+    /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
     public class CharacterScene
     {
+        /// <summary>
+        /// Descriptive text, not used in state machine.
+        /// </summary>
         [JsonProperty]
         public string Description { get; set; }
 
         /// <summary>
-        /// If AVA occurs, then play these stepts when a timer triggers
+        /// If AVA occurs, then play these steps when a timer triggers
         /// </summary>
         [JsonProperty]
         public Dictionary<string, AvaStep> Steps { get; set; }

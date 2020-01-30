@@ -24,13 +24,13 @@ namespace Model
     }
 
     /// <summary>
-    /// Thin DTO
+    /// Scene contains information about the scene, and a list of steps
     /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
     public sealed class Scene
     {
         /// <summary>
-        /// Help to document the JSON, but this field is ignored
+        /// Descriptive text to document the JSON. Has no functional effect.
         /// </summary>
         [JsonProperty]
         public string Description { get; set; }
@@ -66,11 +66,20 @@ namespace Model
         [JsonProperty]
         public SceneTypeT Type { get; set; }
 
+        /// <summary>
+        /// Gets the first step of the scene
+        /// </summary>
+        /// <returns></returns>
         public Step First()
         {
             return Steps.First().Value;
         }
 
+        /// <summary>
+        /// Jump to the specified step
+        /// </summary>
+        /// <param name="key">Step name</param>
+        /// <returns></returns>
         public Step JumpToStep(string key)
         {
             Steps.TryGetValue(key, out Step step);

@@ -8,10 +8,41 @@ using Newtonsoft.Json;
 
 namespace Model
 {
+    /// <summary>
+    /// Commands will be sent back to the show's local server when a step is executed.
+    /// Each step can have a list of commands, and each command can trigger one or more
+    /// effect, and has a duration and a padding time (extra time to wait after the effects
+    /// are executed.)
+    /// 
+    /// A Command is specified in the json like so:
+    /// {
+    ///  "vibrate": {
+    ///    "type": "count",
+    ///    "value": 1
+    ///  },
+    ///  "cue": {
+    ///    "type": 31001,
+    ///    "value": "start"
+    ///  },
+    ///  "sound": null,
+    ///  "light": {
+    ///    "type": "on",
+    ///    "value": 60
+    ///  },
+    ///  "specialText": null,
+    ///  "durationSec": 0,
+    ///  "paddingSec": 0
+    /// }
+    /// 
+    /// This model handles "vibrate", "cue", "sound" and "light" as pre-defined effects. The 
+    /// state machine simply sends a json string with the effects back to the proxy server, so
+    /// you can add any additional named effect that you want, simply by adding a property 
+    /// that name to this class. (See example below.)
+    /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
     public class Command
     {
-        public static Command Default { get { return new Command() { Sound = null, Light = null, Cue = null, Vibrate = null }; } }
+        public static Command Default { get { return new Command() { Sound = null, Light = null, Cue = null, Vibrate = null}; } }
 
         [JsonProperty]
         public Effect Cue { get; set; }
@@ -53,6 +84,14 @@ namespace Model
 
         [JsonProperty]
         public Effect Vibrate { get; set; }
+
+        // The following code demonstrates how to add any additional type of effect that
+        // you want to be able to specify in the json and send to the show's server.
+        // Simply define a JsonProperty, make it public, give it the type Effect.
+        /*
+        [JsonProperty]
+        public Effect AnyNewEffect { get; set; }
+        */
     }
 
     [JsonObject(MemberSerialization.OptIn)]

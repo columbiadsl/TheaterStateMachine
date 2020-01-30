@@ -20,6 +20,10 @@ namespace Model
         TimerTrigger = 3,
     }
 
+    /// <summary>
+    /// Specifies a step within a scene. 
+    /// Model also contains state information for the currently executing step.
+    /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
     public class Step
     {
@@ -53,9 +57,15 @@ namespace Model
         [JsonProperty]
         public int TimeTriggerSec { get; set; }
 
+        /// <summary>
+        /// Name of the next step to jump to after this one completes
+        /// </summary>
         [JsonProperty]
         public string OnTriggerNext { get; set; }
 
+        /// <summary>
+        /// List of Commands for this step
+        /// </summary>
         [JsonProperty]
         public List<Command> Commands { get; set; }
 
@@ -80,12 +90,14 @@ namespace Model
         }
 
         /// <summary>
+        /// This starts executing the step.
         /// The state machine needs to Start each step during transition, otherwise the timers are not running
         /// Its called from the scene, everytime it changes step
         /// Note: Characters don't trigger by step, they are roaming (by scene)
         /// </summary>
         public void Start(Action<Step> stepCompletedCallback, List<string> sceneParticipants)
         {
+            // First, stop the previous step
             Stop();
 
             _charactersPerBeacon.Clear();

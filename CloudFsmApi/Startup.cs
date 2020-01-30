@@ -99,6 +99,10 @@ namespace CloudFsmApi
                 var xmlPath = Path.Combine(HostingEnvironment.WebRootPath, GetType().Assembly.GetName().Name + ".xml");
 
                 c.IncludeXmlComments(xmlPath);
+                var xmlPath2 = Path.Combine(HostingEnvironment.WebRootPath, "Model.xml");
+                c.IncludeXmlComments(xmlPath2);
+
+
             });
 
             services.AddMvc(options =>

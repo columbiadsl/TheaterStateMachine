@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Model</name>
+    </assembly>
+    <members>
+        <member name="T:Model.Character">
+            <summary>
+            Model and state info for a Character
+            </summary>
+        </member>
+        <member name="P:Model.Character.Description">
+            <summary>
+            Metadata: description of character (not used in state machine)
+            </summary>
+        </member>
+        <member name="P:Model.Character.IsRoaming">
+            <summary>
+            Current state of Character as roaming or not
+            </summary>
+        </member>
+        <member name="P:Model.Character.LanternId">
+            <summary>
+            Not part of the Character Json; gets loaded from the table LanternToCharacter
+            </summary>
+        </member>
+        <member name="P:Model.Character.Name">
+            <summary>
+            Not part of the Json as it is the key for the dictionary,
+            Populated from the LanternToCharacter json. 
+            Can be Used for more informative debug messages
+            </summary>
+        </member>
+        <member name="P:Model.Character.Scenes">
+            <summary>
+            Scene specifications for this character
+            </summary>
+        </member>
+        <member name="M:Model.Character.OnBeaconChange(System.String)">
+            <summary>
+            Called when the Character enters/leaves a beacon 
+            </summary>
+            <param name="beaconId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Model.CharacterScene">
+            <summary>
+            Scene definition for a character
+            </summary>
+        </member>
+        <member name="P:Model.CharacterScene.Description">
+            <summary>
+            Descriptive text, not used in state machine.
+            </summary>
+        </member>
+        <member name="P:Model.CharacterScene.Steps">
+            <summary>
+            If AVA occurs, then play these steps when a timer triggers
+            </summary>
+        </member>
+        <member name="P:Model.CharacterScene.Triggers">
+            <summary>
+            Beacons that trigger only during roaming
+            </summary>
+        </member>
+        <member name="T:Model.Command">
+            <summary>
+            Commands will be sent back to the show's local server when a step is executed.
+            Each step can have a list of commands, and each command can trigger one or more
+            effect, and has a duration and a padding time (extra time to wait after the effects
+            are executed.)
+            
+            A Command is specified in the json like so:
+            {
+             "vibrate": {
+               "type": "count",
+               "value": 1
+             },
+             "cue": {
+               "type": 31001,
+               "value": "start"
+             },
+             "sound": null,
+             "light": {
+               "type": "on",
+               "value": 60
+             },
+             "specialText": null,
+             "durationSec": 0,
+             "paddingSec": 0
+            }
+            
+            This model handles "vibrate", "cue", "sound" and "light" as pre-defined effects. The 
+            state machine simply sends a json string with the effects back to the proxy server, so
+            you can add any additional named effect that you want, simply by adding a property 
+            that name to this class. (See example below.)
+            </summary>
+        </member>
+        <member name="P:Model.Command.DurationSec">
+            <summary>
+            The duration for the sound and light commands, during this time,
+            the state machine is blocked for this Lantern
+            </summary>
+        </member>
+        <member name="P:Model.Command.Light">
+            <summary>
+            An array of light levels and durations,
+            The player of the script needs to invoke them sequentially
+            </summary>
+        </member>
+        <member name="P:Model.Command.PaddingSec">
+            <summary>
+            Extra time to block after the Duration completes
+            </summary>
+        </member>
+        <member name="P:Model.Command.Sound">
+            <summary>
+            Label of the sound to play by the Lantern Manager
+            </summary>
+        </member>
+        <member name="P:Model.Command.SpecialText">
+            <summary>
+            Use this property if the SOC Manager needs any other text that is not yet included
+            </summary>
+        </member>
+        <member name="T:Model.SceneTypeT">
+            <summary>
+            Two types of scenes: 
+            Ava is our name for scenes that are attached to the main character
+            Roaming is for scenes that participants can discover through their own explorations
+            </summary>
+        </member>
+        <member name="T:Model.Scene">
+            <summary>
+            Scene contains information about the scene, and a list of steps
+            </summary>
+        </member>
+        <member name="P:Model.Scene.Description">
+            <summary>
+            Descriptive text to document the JSON. Has no functional effect.
+            </summary>
+        </member>
+        <member name="P:Model.Scene.DurationSec">
+            <summary>
+            Total Duration of the scene in seconds (resolution is second to enable fast testing)
+            </summary>
+        </member>
+        <member name="P:Model.Scene.Participants">
+            <summary>
+            List of Lanterns or Characters that play in this scene
+            </summary>
+        </member>
+        <member name="P:Model.Scene.RequiredAVA">
+            <summary>
+            For roaming characters, when they see this beacon
+            They stop roaming and now they follow the AVA steps
+            </summary>
+        </member>
+        <member name="P:Model.Scene.Steps">
+            <summary>
+            Sequence of steps with pointer
+            </summary>
+        </member>
+        <member name="P:Model.Scene.Type">
+            <summary>
+            AVA or roaming
+            </summary>
+        </member>
+        <member name="M:Model.Scene.First">
+            <summary>
+            Gets the first step of the scene
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Model.Scene.JumpToStep(System.String)">
+            <summary>
+            Jump to the specified step
+            </summary>
+            <param name="key">Step name</param>
+            <returns></returns>
+        </member>
+        <member name="T:Model.Step">
+            <summary>
+            Specifies a step within a scene. 
+            Model also contains state information for the currently executing step.
+            </summary>
+        </member>
+        <member name="P:Model.Step.Description">
+            <summary>
+            Metadata to decorate the JSON file, it is not used by the state machine
+            </summary>
+        </member>
+        <member name="P:Model.Step.RequiredID">
+             <summary>
+             array of character names/lantern ids
+             The idea is that ALL users must trip ANY Beacon on the Beacon list to advance a beacon enabled step of a scene. So if users are 1,2,3 and Beacons are A, B,C, then 1A, 2A, 3A is a successful trigger, but so is 1A, 2B, 3C
+             Example 1               "RequiredID": ["Lan001", "Lan002"],
+             Example 2               "RequiredID": ["John Allan", "Poe"],
+             Example 3               "RequiredID": ["ALL"],
+            
+             </summary>
+        </member>
+        <member name="P:Model.Step.RequiredBeacons">
+            <summary>
+            Array of beacons, when all the required users visit one of the listed elements
+            Example                "RequiredBeacons": ["Beacon001", "Beacon002"],
+            </summary>
+        </member>
+        <member name="P:Model.Step.OnTriggerNext">
+            <summary>
+            Name of the next step to jump to after this one completes
+            </summary>
+        </member>
+        <member name="P:Model.Step.Commands">
+            <summary>
+            List of Commands for this step
+            </summary>
+        </member>
+        <member name="M:Model.Step.Start(System.Action{Model.Step},System.Collections.Generic.List{System.String})">
+            <summary>
+            This starts executing the step.
+            The state machine needs to Start each step during transition, otherwise the timers are not running
+            Its called from the scene, everytime it changes step
+            Note: Characters don't trigger by step, they are roaming (by scene)
+            </summary>
+        </member>
+        <member name="M:Model.Step.OnBeaconOccurred(System.String,System.String)">
+            <summary>
+            Test for condition to trigger a change of step
+            </summary>
+            <param name="userId"></param>
+            <param name="beaconId"></param>
+        </member>
+    </members>
+</doc>
