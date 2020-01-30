@@ -4,23 +4,62 @@
         <name>CloudFsmApi</name>
     </assembly>
     <members>
-        <member name="M:CloudFsmApi.Controllers.SceneController.GetConfigAsync">
+        <member name="T:CloudFsmApi.Controllers.SceneController">
+            <summary>
+            Theater State Machine API controller.
+            Use this Swagger interface to upload data files and start the state machine running.
+            </summary>
+        </member>
+        <member name="M:CloudFsmApi.Controllers.SceneController.GetCurrentScene">
+            <summary>
+            Get the scene and step that are currently executing.
+            </summary>
+            <returns>json with CurrentScene and CurrentStep; if show isn't running, CurrentScene = "Application is not running"</returns>
+        </member>
+        <member name="M:CloudFsmApi.Controllers.SceneController.GetSceneConfig">
+            <summary>
+            Get the json defining the show scenes and steps (the main state machine definition file).
+            </summary>
+            <returns>json file defining the scenes and steps for the state machine.</returns>
+        </member>
+        <member name="M:CloudFsmApi.Controllers.SceneController.WriteSceneConfig(System.Collections.Generic.Dictionary{System.String,Model.Scene})">
+            <summary>
+            Upload a json file defining the scenes and steps for the show state machine.
+            </summary>
+            <param name="scenes">json file with scene definitions</param>
+            <returns>Load Ok if upload succeeded.</returns>
+        </member>
+        <member name="M:CloudFsmApi.Controllers.SceneController.GetCharacterConfigAsync">
             <summary>
             Get the character data
             </summary>
             <returns>json with character data</returns>
         </member>
-        <member name="M:CloudFsmApi.Controllers.SceneController.GetCurrentScene">
+        <member name="M:CloudFsmApi.Controllers.SceneController.WriteCharacterConfigAsync(System.Collections.Generic.Dictionary{System.String,Model.Character})">
             <summary>
-            Get the scene scene and step that are currently executing.
+            Upload json with character config
             </summary>
-            <returns>json with CurrentScene and CurrentStep; if show isn't running, CurrentScene = "Application is not running"</returns>
+            <param name="characters">Character configuration json file</param>
+            <returns>"Ok" if successful</returns>
         </member>
-        <member name="M:CloudFsmApi.Controllers.SceneController.GetScene">
+        <member name="M:CloudFsmApi.Controllers.SceneController.WriteLantern2Character(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
-            Get the json defining the show scenes and steps (the main state machine definition file).
+            Upload json file mapping lanterns to characters
             </summary>
-            <returns>json file defining the scenes and steps for the state machine.</returns>
+            <param name="lantern2Character">json file containing lantern to character mappings</param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudFsmApi.Controllers.SceneController.ReadLanternTriggerAsync">
+            <summary>
+            Get the json data file mapping lanterns to characters.
+            </summary>
+            <returns>json file containing lantern to character mappings</returns>
+        </member>
+        <member name="M:CloudFsmApi.Controllers.SceneController.RunAsync">
+            <summary>
+            Start running the state machine
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:CloudFsmApi.Controllers.SceneController.JumpTo(System.String,System.String)">
             <summary>
@@ -38,16 +77,12 @@
             <param name="beaconID"></param>
             <returns></returns>
         </member>
-        <member name="M:CloudFsmApi.Controllers.SceneController.ReadLanternTriggerAsync">
+        <member name="M:CloudFsmApi.Controllers.SceneController.UpdateCharacterLantern(System.String,System.String)">
             <summary>
-            Get the json data file mapping lanterns to characters.
+            Change (or create new) a character's mapping to a lantern id
             </summary>
-            <returns>json file containing lantern to character mappings</returns>
-        </member>
-        <member name="M:CloudFsmApi.Controllers.SceneController.RunAsync">
-            <summary>
-            Start running the state machine
-            </summary>
+            <param name="characterName"></param>
+            <param name="lanternId"></param>
             <returns></returns>
         </member>
         <member name="M:CloudFsmApi.Controllers.SceneController.Simulate(System.Collections.Generic.List{Model.Script})">
@@ -65,50 +100,52 @@
             <param name="json"></param>
             <returns></returns>
         </member>
-        <member name="M:CloudFsmApi.Controllers.SceneController.UpdateCharacterLantern(System.String,System.String)">
-            <summary>
-            Change (or create new) a character's mapping to a lantern id
-            </summary>
-            <param name="characterName"></param>
-            <param name="lanternId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:CloudFsmApi.Controllers.SceneController.WriteConfigAsync(System.Collections.Generic.Dictionary{System.String,Model.Character})">
-            <summary>
-            Upload json with character config
-            </summary>
-            <param name="characters">Character configuration json file</param>
-            <returns>"Ok" if successful</returns>
-        </member>
-        <member name="M:CloudFsmApi.Controllers.SceneController.WriteLantern2Character(System.Collections.Generic.Dictionary{System.String,System.String})">
-            <summary>
-            Upload json file mapping lanterns to characters
-            </summary>
-            <param name="lantern2Character">json file containing lantern to character mappings</param>
-            <returns></returns>
-        </member>
-        <member name="M:CloudFsmApi.Controllers.SceneController.WriteScene(System.Collections.Generic.Dictionary{System.String,Model.Scene})">
-            <summary>
-            Upload a json file defining the scenes and steps for the show state machine.
-            </summary>
-            <param name="scenes">json file with scene definitions</param>
-            <returns>Load Ok if upload succeeded.</returns>
-        </member>
         <member name="M:CloudFsmApi.DownlinkManager.SendCloudToLanternMethodAsync(System.String,System.Collections.Generic.List{Model.Command},System.Nullable{System.Int32})">
             <summary>
             Message explicitly addressed to Lantern
             </summary>
             <param name="lanternId"></param>
-            <param name="command"></param>
+            <param name="commands"></param>
             <param name="table"></param>
             <returns></returns>
         </member>
         <member name="M:CloudFsmApi.DownlinkManager.SendCloudToOtherdeviceMethodAsync(System.Collections.Generic.List{Model.Command})">
             <summary>
-            Other devices in the show like addressable speakers
+            Other devices in the show, such as addressable speakers
             </summary>
-            <param name="command"></param>
+            <param name="commands"></param>
             <returns></returns>
+        </member>
+        <member name="T:CloudFsmApi.FsmSceneManager">
+            <summary>
+            FsmSceneManager maintains the state of the State Machine.  It is intended to be used as a Singleton.
+            </summary>
+        </member>
+        <member name="P:CloudFsmApi.FsmSceneManager.CurrentSceneName">
+            <summary>
+            Scene that is currently being executed
+            </summary>
+        </member>
+        <member name="P:CloudFsmApi.FsmSceneManager.Running">
+            <summary>
+            Is the State Machine running?
+            </summary>
+        </member>
+        <member name="F:CloudFsmApi.FsmSceneManager._currentStep">
+            <summary>
+            Step (sub-part of scene) that is currently being executed
+            </summary>
+        </member>
+        <member name="P:CloudFsmApi.FsmSceneManager.CurrentStepDescription">
+            <summary>
+            Description text of current step (from json). Used only in SceneController.GetCurrentScene.
+            </summary>
+        </member>
+        <member name="M:CloudFsmApi.FsmSceneManager.#ctor(Model.IDownlinkManager,Microsoft.Extensions.Options.IOptions{CloudFsmApi.Config.StorageConfig})">
+            <summary>
+            FsmSceneManager maintains the state of the State Machine.  It is intended to be used as a Singleton.
+            </summary>
+            <param name="downlink">DownlinkManager for connection to IoTHub service</param>
         </member>
         <member name="M:CloudFsmApi.FsmSceneManager.TriggerJumpTo(System.String)">
             <summary>
@@ -118,6 +155,16 @@
             </summary>
             <param name="sceneName">END to terminate</param>
             <param name="stepName"></param>
+        </member>
+        <member name="M:CloudFsmApi.FsmSceneManager.JumpTo(System.String,System.String)">
+            <summary>
+            Go to the specified scene and step.
+            To stop the Scene state machine pass a scene name that is not defined in the JSON
+            Example1 Denial, Step0
+            Example2 End, anything
+            </summary>
+            <param name="sceneName">scene name, or END to terminate</param>
+            <param name="stepName">step name (can be anything if scene is END or doesn't exist)</param>
         </member>
         <member name="M:CloudFsmApi.FsmSceneManager._tmr_Elapsed(System.Object,System.Timers.ElapsedEventArgs)">
             <summary>
@@ -138,6 +185,13 @@
             Every time the Proxy sends telemetry, forward the payload to the SCENE step state machine
             It returns the Collection of commands for the step
             </summary>
+        </member>
+        <member name="M:CloudFsmApi.Helpers.BlobHelper.ReadFromBlobAsync(System.String)">
+            <summary>
+            Retrieve data from Azure Blob Storage
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

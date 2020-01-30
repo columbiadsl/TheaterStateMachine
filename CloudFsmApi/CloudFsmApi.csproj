@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\david\Work\Raven\TheaterStateMachine\CloudFsmApi\wwwroot\CloudFsmApi.xml</DocumentationFile>
+    <DocumentationFile>wwwroot\CloudFsmApi.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

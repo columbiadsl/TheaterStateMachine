@@ -17,6 +17,10 @@ using System.Threading.Tasks;
 
 namespace CloudFsmApi.Controllers
 {
+    /// <summary>
+    /// Theater State Machine API controller.
+    /// Use this Swagger interface to upload data files and start the state machine running.
+    /// </summary>
     [ApiVersion("1.0")]
     [Route("api/v{api-version:apiVersion}/[controller]")]
     public class SceneController : Controller
@@ -33,25 +37,10 @@ namespace CloudFsmApi.Controllers
         }
 
 
-        /// <summary>
-        /// Get the character data
-        /// </summary>
-        /// <returns>json with character data</returns>
-        [HttpGet]
-        [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(typeof(NotFoundResult), 400)]
-        [Produces("application/json")]
-        [Route("characterconfig")]
-        public async Task<IActionResult> GetConfigAsync()
-        {
-            string resp = await _sceneMgr.ReadCharactersFromBlobAsync();
-            var json = JsonConvert.DeserializeObject<Dictionary<string, Character>>(resp);
-
-            return Json(json);
-        }
+        
 
         /// <summary>
-        /// Get the scene scene and step that are currently executing.
+        /// Get the scene and step that are currently executing.
         /// </summary>
         /// <returns>json with CurrentScene and CurrentStep; if show isn't running, CurrentScene = "Application is not running"</returns>
         [HttpGet]
@@ -83,54 +72,114 @@ namespace CloudFsmApi.Controllers
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
         [Produces("application/json")]
-        [Route("scene")]
-        public async Task<IActionResult> GetScene()
+        [Route("sceneconfig")]
+        public async Task<IActionResult> GetSceneConfig()
         {
             var body = await _sceneMgr.ReadScenesFromBlobAsync();
             var scene = JsonConvert.DeserializeObject<Dictionary<string, Scene>>(body);
             return Json(scene);
         }
 
+
+
         /// <summary>
-        /// Jump immediately to the specified scene and step.
+        /// Upload a json file defining the scenes and steps for the show state machine.
         /// </summary>
-        /// <param name="scene"></param>
-        /// <param name="step"></param>
-        /// <returns>json with scene and step executing after the jump</returns>
+        /// <param name="scenes">json file with scene definitions</param>
+        /// <returns>Load Ok if upload succeeded.</returns>
+        [HttpPost]
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 400)]
+        [Produces("application/json")]
+        [Route("sceneconfig")]
+        public async Task<IActionResult> WriteSceneConfig([FromBody] Dictionary<string, Scene> scenes)
+        {
+            if (scenes == null)
+                return StatusCode(StatusCodes.Status500InternalServerError, "Invalid JSON format");
+            if (scenes.TryGetValue("additionalProp1", out Scene value))
+                return StatusCode(StatusCodes.Status500InternalServerError, "Don't use the sample provided by the swagger interface, read the scene instead");
+
+            await _sceneMgr.WriteScenesToBlobAsync(scenes);
+            var resp = new Dictionary<string, string>
+                {
+                    { "Load", "OK" }
+                };
+
+            return Json(resp);
+        }
+
+
+        /// <summary>
+        /// Get the character data
+        /// </summary>
+        /// <returns>json with character data</returns>
         [HttpGet]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
         [Produces("application/json")]
-        [Route("jump/{scene}/{step}")]
-        public IActionResult JumpTo(string scene, string step)
+        [Route("characterconfig")]
+        public async Task<IActionResult> GetCharacterConfigAsync()
         {
-            DoScene(scene, step);
-            return GetCurrentScene();
+            string resp = await _sceneMgr.ReadCharactersFromBlobAsync();
+            var json = JsonConvert.DeserializeObject<Dictionary<string, Character>>(resp);
+
+            return Json(json);
+        }
+
+
+        /// <summary>
+        /// Upload json with character config
+        /// </summary>
+        /// <param name="characters">Character configuration json file</param>
+        /// <returns>"Ok" if successful</returns>
+        [HttpPost]
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 400)]
+        [Produces("application/json")]
+        [Route("characterconfig")]
+        public async Task<IActionResult> WriteCharacterConfigAsync([FromBody] Dictionary<string, Character> characters)
+        {
+            if (characters == null)
+                return StatusCode(StatusCodes.Status500InternalServerError, "Invalid JSON format");
+            if (characters.TryGetValue("additionalProp1", out Character value))
+                return StatusCode(StatusCodes.Status500InternalServerError, "Don't use the sample provided by the swagger interface, read the characterconfig instead");
+
+            await _sceneMgr.WriteCharactersToBlobAsync(characters);
+
+            var resp = new Dictionary<string, string>
+                {
+                    { "Load", "OK" }
+                };
+
+            return Json(resp);
         }
 
         /// <summary>
-        /// Report when a lantern enters a beacon area.
+        /// Upload json file mapping lanterns to characters
         /// </summary>
-        /// <param name="lanternID"></param>
-        /// <param name="beaconID"></param>
+        /// <param name="lantern2Character">json file containing lantern to character mappings</param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 400)]
         [Produces("application/json")]
-        [Route("onBeaconChange/{lanternID}/{beaconID}")]
-        public async Task<IActionResult> OnBeaconChange(string lanternID, string beaconID)
+        [Route("lanternToCharacter")]
+        public async Task<IActionResult> WriteLantern2Character([FromBody] Dictionary<string, string> lantern2Character)
         {
-            try
-            {
-                await OnBeaconChangeInternal(lanternID, beaconID);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            if (lantern2Character == null)
+                return StatusCode(StatusCodes.Status500InternalServerError, "Invalid JSON format");
+
+            await _sceneMgr.WriteLanternToCharacterToBlobAsync(lantern2Character);
+
+            var resp = new Dictionary<string, string>
+                {
+                    { "Load", "OK" }
+                };
+
+            return Json(resp);
         }
+
+
 
         /// <summary>
         /// Get the json data file mapping lanterns to characters.
@@ -189,6 +238,97 @@ namespace CloudFsmApi.Controllers
 
             return Json(resp);
         }
+
+
+        /// <summary>
+        /// Jump immediately to the specified scene and step.
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="step"></param>
+        /// <returns>json with scene and step executing after the jump</returns>
+        [HttpGet]
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 400)]
+        [Produces("application/json")]
+        [Route("jump/{scene}/{step}")]
+        public IActionResult JumpTo(string scene, string step)
+        {
+            DoScene(scene, step);
+            return GetCurrentScene();
+        }
+
+        /// <summary>
+        /// Report when a lantern enters a beacon area.
+        /// </summary>
+        /// <param name="lanternID"></param>
+        /// <param name="beaconID"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 400)]
+        [Produces("application/json")]
+        [Route("onBeaconChange/{lanternID}/{beaconID}")]
+        public async Task<IActionResult> OnBeaconChange(string lanternID, string beaconID)
+        {
+            try
+            {
+                await OnBeaconChangeInternal(lanternID, beaconID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Change (or create new) a character's mapping to a lantern id
+        /// </summary>
+        /// <param name="characterName"></param>
+        /// <param name="lanternId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 400)]
+        [Produces("application/json")]
+        [Route("update/{characterName}/{lanternId}")]
+        public async Task<IActionResult> UpdateCharacterLantern(string characterName, string lanternId)
+        {
+            try
+            {
+                // get current character map from memory
+                var json = await _sceneMgr.ReadLanternToCharacterFromBlobAsync();
+                Dictionary<string, string> l2c = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+                //check if the entered key exists, reverse lookup the dictionary
+                foreach (var kvp in l2c)
+                {
+                    if (kvp.Value == characterName)
+                    {
+                        l2c.Remove(kvp.Key);
+                        break;
+                    }
+                }
+
+                l2c.Add(lanternId, characterName);
+                await _sceneMgr.WriteLanternToCharacterToBlobAsync(l2c);
+
+                var characters = _sceneMgr.Characters;
+                if (characters != null && characters.Any())
+                {
+                    characters[characterName].LanternId = lanternId;
+                    await _sceneMgr.WriteCharactersToBlobAsync(characters);
+                }
+
+                //return new map
+                return Json(l2c);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
 
         /// <summary>
         /// Deprecated.  Takes json to be executed immediately.
@@ -261,131 +401,6 @@ namespace CloudFsmApi.Controllers
             {
                 { "Scene", _sceneMgr.CurrentSceneName }
             };
-
-            return Json(resp);
-        }
-
-        /// <summary>
-        /// Change (or create new) a character's mapping to a lantern id
-        /// </summary>
-        /// <param name="characterName"></param>
-        /// <param name="lanternId"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(typeof(NotFoundResult), 400)]
-        [Produces("application/json")]
-        [Route("update/{characterName}/{lanternId}")]
-        public async Task<IActionResult> UpdateCharacterLantern(string characterName, string lanternId)
-        {
-            try
-            {
-                // get current character map from memory
-                var json = await _sceneMgr.ReadLanternToCharacterFromBlobAsync();
-                Dictionary<string, string> l2c = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-                //check if the entered key exists, reverse lookup the dictionary
-                foreach (var kvp in l2c)
-                {
-                    if (kvp.Value == characterName)
-                    {
-                        l2c.Remove(kvp.Key);
-                        break;
-                    }
-                }
-
-                l2c.Add(lanternId, characterName);
-                await _sceneMgr.WriteLanternToCharacterToBlobAsync(l2c);
-
-                var characters = _sceneMgr.Characters;
-                if (characters != null && characters.Any())
-                {
-                    characters[characterName].LanternId = lanternId;
-                    await _sceneMgr.WriteCharactersToBlobAsync(characters);
-                }
-
-                //return new map
-                return Json(l2c);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Upload json with character config
-        /// </summary>
-        /// <param name="characters">Character configuration json file</param>
-        /// <returns>"Ok" if successful</returns>
-        [HttpPost]
-        [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(typeof(NotFoundResult), 400)]
-        [Produces("application/json")]
-        [Route("characterconfig")]
-        public async Task<IActionResult> WriteConfigAsync([FromBody] Dictionary<string, Character> characters)
-        {
-            if (characters == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, "Invalid JSON format");
-            if (characters.TryGetValue("additionalProp1", out Character value))
-                return StatusCode(StatusCodes.Status500InternalServerError, "Don't use the sample provided by the swagger interface, read the characterconfig instead");
-
-            await _sceneMgr.WriteCharactersToBlobAsync(characters);
-
-            var resp = new Dictionary<string, string>
-                {
-                    { "Load", "OK" }
-                };
-
-            return Json(resp);
-        }
-
-        /// <summary>
-        /// Upload json file mapping lanterns to characters
-        /// </summary>
-        /// <param name="lantern2Character">json file containing lantern to character mappings</param>
-        /// <returns></returns>
-        [HttpPost]
-        [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(typeof(NotFoundResult), 400)]
-        [Produces("application/json")]
-        [Route("lanternToCharacter")]
-        public async Task<IActionResult> WriteLantern2Character([FromBody] Dictionary<string, string> lantern2Character)
-        {
-            if (lantern2Character == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, "Invalid JSON format");
-
-            await _sceneMgr.WriteLanternToCharacterToBlobAsync(lantern2Character);
-
-            var resp = new Dictionary<string, string>
-                {
-                    { "Load", "OK" }
-                };
-
-            return Json(resp);
-        }
-
-        /// <summary>
-        /// Upload a json file defining the scenes and steps for the show state machine.
-        /// </summary>
-        /// <param name="scenes">json file with scene definitions</param>
-        /// <returns>Load Ok if upload succeeded.</returns>
-        [HttpPost]
-        [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(typeof(NotFoundResult), 400)]
-        [Produces("application/json")]
-        [Route("scene")]
-        public async Task<IActionResult> WriteScene([FromBody] Dictionary<string, Scene> scenes)
-        {
-            if (scenes == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, "Invalid JSON format");
-            if (scenes.TryGetValue("additionalProp1", out Scene value))
-                return StatusCode(StatusCodes.Status500InternalServerError, "Don't use the sample provided by the swagger interface, read the scene instead");
-
-            await _sceneMgr.WriteScenesToBlobAsync(scenes);
-            var resp = new Dictionary<string, string>
-                {
-                    { "Load", "OK" }
-                };
 
             return Json(resp);
         }

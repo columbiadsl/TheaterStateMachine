@@ -1,6 +1,6 @@
 
-# RavenStateMachine
- Source code for Raven state machine Azure services
+# TheaterStateMachine
+ Source code for a state machine system to drive an immersive theater piece, using Azure cloud services.
 
 # Description
 This project contains the web service designed for an immersive theater piece The Raven, produced by the Columbia Digital Storytelling Lab in NYC in October, 2019. The service implements a state machine that controls the light and sound cues played by lanterns held by each audience member, in response to movements in and out of beacon zones.
@@ -12,17 +12,19 @@ The following pre-requisites are required
 - Contributor access or greater to an Azure subscription
 - [.NET Core runtime(s) 2.1.x](https://dotnet.microsoft.com/download/dotnet-core/2.1) (both ASP and NET Core)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (publish operations will be accomplished via Visual Studio)
-- A Visual Studio project configured to connect to a Resource Group on your Azure account.
+- A Microsoft Azure cloud account.
 
 ## GO
 
-1. "Right-Click Deploy" the `RavenResourceGroup` project to Azure
-     - Create a device named `proxy-multiplexor` in the deployed IoT Hub and copy the connection string for use in the `EdgeProxy` (see below.)
-1. "Right-Click Publish" the `CloudFsmApi` project to the app service created from step 1
-1. "Right-Click Publish" the `CloudFsmProcessor` project to the function app created from step 1
+1. Deploy the project to your Azure account.
+    - Right-Click the `RavenResourceGroup` project and select "Deploy->New"
+    - Select your Azure account and subscription, and under Resource group select "Create New" to create a new resource group on your account. If that succeeds, you can then click "Deploy"
+    - Create a device named `proxy-multiplexor` in the deployed IoT Hub (on the Azure dashboard) and copy the connection string for use in the `EdgeProxy` (see below.)
+1. Right-Click  the `CloudFsmApi` project and select "Publish" to the app service created from step 1
+1. Right-Click the `CloudFsmProcessor` project and select "Publish" to the function app created from step 1
 1. From the swagger endpoint of the app service `https://<app-service-url>/swagger` execute the following
+    - Post the contents of the Scene.json found under the Data folder of the CloudFsmApi project to `api/v1.0/Scene/scene`  (Note: you must post the scene file first!)
     - Post the contents of the Characters.json found under the Data folder of the CloudFsmApi project to `api/v1.0/Scene/characterconfig`
-    - Post the contents of the Scene.json found under the Data folder of the CloudFsmApi project to `api/v1.0/Scene/scene`
     -  Post the contents of the LanternToCharacter.json found under the Data folder of the CloudFsmApi project to `api/v1.0/Scene/lanternToCharacter`
     -  Post to `api/v1.0/Scene/run` - the response should be a 200 with the response body of
         ```json
@@ -31,10 +33,10 @@ The following pre-requisites are required
         }
         ```
 1. Update line 27 of the PipeServer.cs in the `EdgeProxy` project with the connection string of the `proxy-multiplexor` device created in step 1.
-1. "Right-Click Debug" start new instance the `EdgeProxy` project
-1. "Right-Click Debug" start new instance the `EdgeDeviceSimulator` project
+1. Right-Click the `EdgeProxy` project and select "Debug-> Start New Instance"
+1. Right-Click the `EdgeDeviceSimulator` project and select "Debug-> Start New Instance"
 
-The state engine will now progress thru the scene script.  C2D messages will appear in the Proxy and propagate to the Device Simulator.
+The state engine will now progress thru the scene script.  Command messages will appear in the Proxy and propagate to the Device Simulator.
 
 You can check which scene is currently active by making a GET request to `api/v1.0/Scene/currentscene`
 
@@ -81,7 +83,7 @@ More information about Swagger at these links:
 
 Before you can use the service you will need to upload json files that define how the show will run. Read more here:
 
-The json files need to be POSTed to the API. You can use the Swagger interface to do this. Click on POST for characterconfig, scene, or lanternToCharacter to expand the information about these endpoints.  Then click "Try it Out" to enable the feature to post data.  In the text box under "Edit Value" paste the entire json structure (make sure it is valid json!).  Then click the blue "Execute" button. The data will be posted to the api, and the response will appear below.
+The json files need to be POSTed to the API. You can use the Swagger interface to do this, as described above. Click on POST for scene, characterconfig, or lanternToCharacter to expand the information about these endpoints.  Then click "Try it Out" to enable the feature to post data.  In the text box under "Edit Value" paste the entire json structure (make sure it is valid json!).  Then click the blue "Execute" button. The data will be posted to the api, and the response will appear below.
 
 You need to post all three data files before you can start running the show. To start the show, use the POST for the /Scene/run endpoint.  This will cue up the first scene, and start running the show. The API will respond to onBeaconChange and jump reuests to move the show forward.  It will also execute timers for any timed scenes, and move those forward automatically.
 
