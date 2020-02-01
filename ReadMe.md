@@ -3,7 +3,7 @@
  Source code for a state machine system to drive an immersive theater piece, using Azure cloud services.
 
 # Description
-This project contains the web service designed for an immersive theater piece The Raven, produced by the Columbia Digital Storytelling Lab in NYC in October, 2019. The service implements a state machine that controls the light and sound cues played by lanterns held by each audience member, in response to movements in and out of beacon zones.
+This project contains the web service designed for The Raven, an immersive theatre piece that premiered during The New York Film Festival. After its initial launch, The Raven staged a limited month-long run at the American Irish Historical Society prior to closing on November 5th, 2019. Columbia DSL assisted the creators of the project by staging a series of open prototyping sessions held during our monthly meetups at Lincoln Center. The following code and documentation is an effort to provide open resources to those who are interested in exploring new forms and functions of storytelling. 
 
 # QuickStart
 
