@@ -513,8 +513,8 @@
           "durationSec": 0,
           "paddingSec": 0
         }]
-      },
-
+      }
+    },
       "participants": null,
       "requiredAVA": null
   },
@@ -951,9 +951,8 @@
             "durationSec": 9,
             "paddingSec": 0
           }]
-
-
-        },
+        }
+      },
         "participants": null,
         "requiredAVA": "beacon60"
   },
@@ -1610,6 +1609,4 @@
         "participants": null,
         "requiredAVA": null
       }
-    }
-  }
 }
