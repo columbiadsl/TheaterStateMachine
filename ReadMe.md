@@ -91,7 +91,10 @@ You need to post all three data files before you can start running the show. To 
 
 On your local network you will need to run the ProxyServer.  This sends show events to the API, and receives commands from the state machine.  You will also need your own server to process these commands and dispatch them to the various subsystems running your show (e.g. QLab for lighting or sound, IoT devices, etc.)
 
+
 # Architecture
+
+More details can be found in the "Core Functionality of the State Machine" document in this repo.
 
 ### Data Flow
 
@@ -110,7 +113,7 @@ __EdgeProxy__ runs on your local network and is the single connection multiplexe
 
 __EdgeDeviceSimulator__ is included to illustrate how the local server connects to the proxy using named pipes. You can use this for testing your Azure deployment. In production, you won't run this, as you'll be running your own local server code.
 
-#### Show Specification Data
+### Show Specification Data
 There are three json data files that specify how the show should run. Between them they contain information about the show's scenes and characters, the commands that should be sent to the show systems for each step within a scene, and what conditions cause a transition between scene steps for the show as a whole and each character.
 
 - *Scene.json* defines the show's main scenes and steps.
@@ -119,9 +122,11 @@ There are three json data files that specify how the show should run. Between th
 
 Example data files as used for the Raven are located in the CloudFsmApi/Data directory, and these are loaded when the service starts. You can upload new data files through the Swagger interface to the API.
 
-#### Show State
+### Show State
 
 The state of the show at any point has every show participant in a step of a scene, and a timer for how long the step is active.
 
 State changes when:
 Users trigger beacons and/or a specific amount of time passes. Either of these will trigger a jump to a new scene step, which will send new commands to the show systems.
+
+
