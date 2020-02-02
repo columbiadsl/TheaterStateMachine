@@ -94,7 +94,7 @@ On your local network you will need to run the ProxyServer.  This sends show eve
 
 # Architecture
 
-More details can be found in the "Core Functionality of the State Machine" document in this repo.
+More details can be found in the [Technical Design document](TechnicalDesign.md) in this repo.
 
 ### Data Flow
 
